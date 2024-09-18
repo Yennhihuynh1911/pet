@@ -1,14 +1,15 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { Inter } from "next/font/google"
+import { Noto_Sans, Archivo_Black } from "next/font/google"
 import { Provider } from "./provider"
 import Link from "next/link"
 import { CartButton } from "@/components"
 import { cart } from "@/constant/cart"
 
-const inter = Inter({
+const archivo = Archivo_Black({ weight: "400", subsets: ["latin"] })
+
+const noto = Noto_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
   display: "swap",
 })
 
@@ -26,7 +27,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.variable}`}>
+      <body className={`${noto.className}`}>
         <Provider>
           <div
             style={{
@@ -47,7 +48,7 @@ export default async function RootLayout({
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "#fff",
+                background: "#2563eb",
                 boxShadow: "0px 0px 6px rgba(0,0,0,.6)",
               }}
             >
@@ -62,12 +63,13 @@ export default async function RootLayout({
                 >
                   <Link
                     style={{
-                      fontWeight: 600,
+                      fontWeight: 700,
                       textTransform: "uppercase",
-                      fontSize: "28px",
-                      color: "#000",
+                      fontSize: "30px",
+                      color: "#fff",
                     }}
                     href={"/"}
+                    className={`${archivo.className}`}
                   >
                     PET STORE
                   </Link>
